@@ -97,17 +97,12 @@ namespace Plugin {
             string line;
             std::ifstream file(CPUInfoFile);
             if (file.is_open()) {
-                while (getline(file, line)) {
-                    if (line.find("Serial") != std::string::npos) {
-                        std::size_t position = line.find(": ");
-                        if (position != std::string::npos) {
-                            _identity.assign(line.substr(position + 2, string::npos));
-                        }
-                    }
-                }
-                file.close();
-            }
-        }
+		     _identity.assign("0000000000000000");
+    		    file.close();
+
+	    }
+    
+	 }
 
     private:
         string _firmwareVersion;
